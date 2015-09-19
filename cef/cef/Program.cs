@@ -10,7 +10,7 @@ namespace cef
 {
     class Program
     {
-        public void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("You need to manually delete this folder.");
             var folder = GetTemporaryDirectory();
@@ -18,19 +18,19 @@ namespace cef
             OpenDirectory(folder);
         }
 
-        public string GetTemporaryDirectory()
+        static string GetTemporaryDirectory()
         {
             string tempDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             Directory.CreateDirectory(tempDirectory);
             return tempDirectory;
         }
 
-        public DirectoryInfo CreateDirectory(string folder)
+        static DirectoryInfo CreateDirectory(string folder)
         {
             return Directory.CreateDirectory(folder);
         }
 
-        public void OpenDirectory(string folder)
+        static void OpenDirectory(string folder)
         {
             Process.Start(folder);
         }
